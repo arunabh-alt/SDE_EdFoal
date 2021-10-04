@@ -15,7 +15,7 @@ int main()
         if(arr[i] == key)
         {
                     index=i;
-                    arr[i]= printf("_");
+                    break;
                 }
 
 
