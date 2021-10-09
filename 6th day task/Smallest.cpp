@@ -18,24 +18,36 @@ Output: 1 */
 
 #include<iostream>
 using namespace std;
+int firstMissingPositive(int A[], int n1) {
+    int i = 0;
+   while (i < n1) {
+     if (A[i] > 0 && A[i] <= n1 && A[i] != i+1 && A[i] != A[A[i]-1]) {
+       int temp = A[A[i]-1];
+       A[A[i]-1] = A[i];
+       A[i] = temp;
+     } else {
+       ++i;
+     }
+   }
+   i = 0;
+   while (i < n1 && A[i] == i+1) ++i;
+   return i+1;
+}
+
 
 int main(){
-    int arr[100],n,i,index;
+    int A[100],n1,i,index;
     int smallest;
     cout<<"Enter the array size: \n";
-    cin>>n;
+    cin>>n1;
     cout<<"Enter the array elements: \n";
-    for(i=0;i<n;i++){
-        cin>>arr[i];
+    for(i=0;i<n1;i++){
+        cin>>A[i];
     }
-    smallest=arr[0];
-    for(i=0;i<n;i++){
-        if(arr[i]<smallest){
-            smallest=arr[i];
-            index = i;
-        }
-    }
-    cout<<index+1;
+    smallest=firstMissingPositive(A,n1);
+
+    cout<<smallest;
     return 0;
 
 }
+
