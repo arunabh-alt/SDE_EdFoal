@@ -15,15 +15,17 @@ using namespace std;
 
 string longestCommonPrefix(string st[], int n)
 {
+    //If string 0, then return empty string
     if (n == 0)
         return "";
-
     if (n == 1)
         return st[0];
 
-
+    //Using library sort the array
     sort(st, st + n);
+    //Try to find the minimum length
     int a = min(st[0].size(),st[n - 1].size());
+    //Now the common prefix in first and last string is the longest common prefix
     string first = st[0], last = st[n - 1];
     int i = 0;
     while (i < a && first[i] == last[i])
