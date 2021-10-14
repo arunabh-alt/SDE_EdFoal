@@ -94,7 +94,7 @@ class Solution {
       return result;
    }
 };
-main(){
+int main(){
    vector<string> v = {"This", "is", "an", "example", "of", "text", "justification."};
    Solution ob;
    print_vector(ob.fullJustify(v, 16));
